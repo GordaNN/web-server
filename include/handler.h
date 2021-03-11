@@ -33,7 +33,7 @@ struct Header
 class Handler
 {
 public:
-    explicit Handler(std::string resourcesRoot);
+    Handler(std::string resourcesRoot);
     std::string Handle(int socket, std::string requestString);
 
 private:
