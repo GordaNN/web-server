@@ -9,14 +9,11 @@ Multithreaded HTTP web server written in C++ based on thread pool architecture f
 * PUT
 * DELETE
 
-## Usage
-`web-server -p {PORT}`
-default port - 3000
-
 ## Configuration
 File `server.config`
-* thread_limit - maximum thred count
-* resources_root - server files directory
+* port - port of server (default 3000)
+* thread_limit - maximum thred count (default 1)
+* resources_root - server files directory (default "./")
 
 ### used libraries
 * ws2_32 
