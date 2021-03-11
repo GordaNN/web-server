@@ -70,6 +70,7 @@ bool Server::Listen(std::ostream& logOut, std::ostream& errOut)
 
         int bufferSize = 16384;
         char buffer[16384];
+        memset(buffer, 0, bufferSize);
         recv(socket, buffer, bufferSize, 0);
         std::string request(buffer);
 
