@@ -7,12 +7,14 @@ project(web-server)
 find_library(WS2_32_LIBRARY ws2_32)
 
 set(HEADERS
+    include/server.h
     include/config.h
     include/handler.h
     include/thread_pool.h
 )
 
 set(SOURCES
+    src/server.cpp
     src/main.cpp
     src/config.cpp
     src/handler.cpp

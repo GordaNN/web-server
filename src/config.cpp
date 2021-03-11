@@ -1,3 +1,4 @@
+#include <algorithm>
 #include "config.h"
 
 bool Config::Read(std::ostream& logOut, std::ostream& errOut)
@@ -15,14 +16,25 @@ bool Config::Read(std::ostream& logOut, std::ostream& errOut)
     std::string line;
     while (std::getline(file, line))
     {
-        line.erase(remove(line.begin(), line.end(), ' '), line.end());
-        line.erase(remove(line.begin(), line.end(), '\t'), line.end());
+        line.erase(std::remove(line.begin(), line.end(), ' '), line.end());
+        line.erase(std::remove(line.begin(), line.end(), '\t'), line.end());
 
         size_t j = line.find('=');
         std::string name = line.substr(0, j);
         std::string value = line.substr(++j, line.length());
 
-        if (name == "thread_limit")
+        if (name == "port")
+        {
+            try
+            {
+                this->port = std::stoi(value);
+            }
+            catch (...)
+            {
+                errOut << "Thread limit is not a number" << std::endl;
+            }
+        }
+        else if (name == "thread_limit")
         {
             try
             {

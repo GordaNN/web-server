@@ -17,18 +17,26 @@ public:
 
 	bool Read(std::ostream& logOut, std::ostream& errOut);
 
+	inline unsigned int GetPort() const;
 	inline unsigned int GetThreadLimit() const;
 	inline std::string GetResourcesRoot() const;
 
 private:
+	unsigned int port;
 	unsigned int threadLimit;
 	std::string resourcesRoot;
 };
 
 Config::Config() :
+	port(3000),
 	threadLimit(1),
 	resourcesRoot("")
 {
+}
+
+unsigned int Config::GetPort() const
+{
+	return this->port;
 }
 
 unsigned int Config::GetThreadLimit() const
