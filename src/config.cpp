@@ -31,7 +31,7 @@ bool Config::Read(std::ostream& logOut, std::ostream& errOut)
             }
             catch (...)
             {
-                errOut << "Thread limit is not a number" << std::endl;
+                errOut << "Port value is not a number" << std::endl;
             }
         }
         else if (name == "thread_limit")
