@@ -8,7 +8,7 @@ bool Config::Read(std::ostream& logOut, std::ostream& errOut)
     std::ifstream file("server.config");
     if (!file)
     {
-        errOut << "Can't read config file 'server.conf'" << std::endl;
+        errOut << "Can't read config file 'server.config'" << std::endl;
         return false;
     }
 
